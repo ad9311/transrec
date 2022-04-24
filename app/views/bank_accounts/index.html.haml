@@ -1,1 +1,7 @@
 %h1 Transrec
+- @bank_accounts.each do |bank_account|
+  %h3= bank_account.bank
+  %p= bank_account.sort.capitalize
+  %p= "#" + bank_account.last_four
+  %p= format_balance bank_account.balance
+  = link_to "Show", bank_account
