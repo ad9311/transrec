@@ -1,4 +1,8 @@
 %h2= @bank_account.bank
 %p= "#{@cycle.month.capitalize}/#{@cycle.year}"
+- @cycle.transactions.each do |transaction|
+  %p= format_balance transaction.amount
+  %p= transaction.description
+%p= format_balance @cycle.balance
 = link_to 'Add a deposit', transactions_new_deposit_path(id: @cycle)
 = link_to 'Add a expesne', transactions_new_expense_path(id: @cycle)

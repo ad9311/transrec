@@ -14,6 +14,7 @@ class TransactionsController < ApplicationController
     @transaction = cycle.transactions.build(transaction_params)
     respond_to do |format|
       if @transaction.save
+        cycle.new_transaction(@transaction.amount)
         format.html { redirect_to cycle.bank_account, notice: 'Created' }
       else
         format.html { render :new, status: :unprocessable_entity }
