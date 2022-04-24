@@ -1,5 +1,6 @@
 class Cycle < ApplicationRecord
   belongs_to :bank_account
+  has_many :transactions
 
   enum :month, {
     january: 1,

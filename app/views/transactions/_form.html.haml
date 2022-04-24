@@ -1,0 +1,24 @@
+= form_for @transaction do |f|
+  - if @transaction.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@transaction.errors.count, "error")} prohibited this transaction from being saved:"
+      %ul
+        - @transaction.errors.full_messages.each do |message|
+          %li= message
+  .hidden-field
+    = f.hidden_field :cycle_id, value: @cycle.id
+  - if current_page?(transactions_new_deposit_path)
+    .hidden-field
+      = f.hidden_field :category, value: :deposit
+  - else
+    .field
+      = f.label :category
+      = f.text_field :category
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :amount
+    = f.number_field :amount
+  .actions
+    = f.submit 'Save'
