@@ -1,4 +1,6 @@
 class Transaction < ApplicationRecord
+  validates :description, presence: true, length: { maximum: 20 }
+  validates :amount, presence: true, numericality: true
   belongs_to :cycle
 
   enum :category, {

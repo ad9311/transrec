@@ -3,4 +3,6 @@
     .notice
       %p= notice
     .altert
-      %p= alert
+      - if alert.is_a?(Array)
+        - alert.each do |message|
+          %p= message

@@ -3,4 +3,4 @@
   %p= bank_account.sort.capitalize
   %p= "#" + bank_account.last_four
   %p= format_balance bank_account.balance
-  = link_to "Show", bank_account
+  = link_to "Show", bank_account, "data-turbo-frame": "_top"

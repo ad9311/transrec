@@ -1,4 +1,11 @@
 = turbo_stream.append "bank_accounts" do
-  = render "bank_accounts/bank_account", bank_account: @bank_account
+  - if @bank_account.errors.any?
+    %div
+  - else
+    = render "bank_accounts/bank_account", bank_account: @bank_account
+
+= turbo_stream.replace "notifications" do
+  = render "notifications/notifications"
+
 = turbo_stream.replace "new_bank_account" do
   = turbo_frame_tag "new_bank_account"

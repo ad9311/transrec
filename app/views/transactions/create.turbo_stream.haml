@@ -1,6 +1,8 @@
 = turbo_stream.replace "current_user_balance" do
   = render "navbar/current_user_balance"
+
 = turbo_stream.replace @bank_account do
   = render "bank_accounts/transactions"
+
 = turbo_stream.replace "notifications" do
   = render "notifications/notifications"

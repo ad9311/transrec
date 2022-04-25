@@ -11,10 +11,10 @@ module ApplicationHelper
     balance
   end
 
-  def map_enum(enum)
+  def map_enum(enum, skip = nil)
     map = []
-    enum.each do |k, _v|
-      map << [k.to_s.tr('_', ' ').capitalize, k]
+    enum.each do |k, v|
+      map << [k.to_s.tr('_', ' ').capitalize, k] unless skip == k
     end
     map
   end

@@ -1,6 +1,6 @@
 class Cycle < ApplicationRecord
   belongs_to :bank_account
-  has_many :transactions
+  has_many :transactions, dependent: :destroy
 
   enum :month, {
     january: 1,

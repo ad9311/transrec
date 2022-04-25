@@ -1,10 +1,4 @@
 = form_for @transaction do |f|
-  - if @transaction.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@transaction.errors.count, "error")} prohibited this @transaction from being saved:"
-      %ul
-        - @transaction.errors.full_messages.each do |message|
-          %li= message
   .hidden-field
     = f.hidden_field :cycle_id, value: @cycle.id
   - if mode == :deposit
@@ -13,7 +7,7 @@
   - else
     .field
       = f.label :category
-      = f.select :category, map_enum(Transaction.categories)
+      = f.select :category, map_enum(Transaction.categories, 'deposit')
   .field
     = f.label :description
     = f.text_area :description

@@ -20,7 +20,8 @@ class TransactionsController < ApplicationController
         format.turbo_stream
         flash.now[:notice] = 'Transaction added'
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream
+        flash.now[:alert] = @transaction.errors.full_messages
       end
     end
   end
