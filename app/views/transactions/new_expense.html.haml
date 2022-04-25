@@ -1,3 +1,3 @@
 = turbo_frame_tag "new_transaction" do
-  = render "form", cycle: @cycle, mode: :expesne
+  = render "form", mode: :expesne
   = link_to "Close", @cycle.bank_account, "data-turbo-frame": "_top"

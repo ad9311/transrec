@@ -6,7 +6,7 @@
         - @transaction.errors.full_messages.each do |message|
           %li= message
   .hidden-field
-    = f.hidden_field :cycle_id, value: cycle.id
+    = f.hidden_field :cycle_id, value: @cycle.id
   - if mode == :deposit
     .hidden-field
       = f.hidden_field :category, value: :deposit

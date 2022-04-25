@@ -18,7 +18,7 @@ class TransactionsController < ApplicationController
       if @transaction.save
         @cycle.new_transaction(@transaction.amount)
         format.turbo_stream
-        format.html { redirect_to @bank_account, notice: 'Created' }
+        flash.now[:notice] = 'Transaction added'
       else
         format.html { render :new, status: :unprocessable_entity }
       end

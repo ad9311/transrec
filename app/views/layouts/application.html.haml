@@ -9,13 +9,6 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    .top_navbar
-      = render "navbar/navbar"
-    .notifiactions
-      .notice
-        %p= notice
-      .altert
-        %p= alert
+    = render "navbar/navbar"
     .content
-      .yield
-        = yield
+      = yield
