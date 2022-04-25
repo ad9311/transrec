@@ -3,7 +3,7 @@
     .top_bar_narrow
       = link_to "Transrec", root_path
       = link_to "Home", root_path
-      = link_to "New Account", new_bank_account_path
+      = link_to "New Account", new_bank_account_path, "data-turbo-frame": "new_bank_account"
       = button_to "Logout", destroy_user_session_path, method: :delete
       %p= current_user.full_name
       = render "navbar/current_user_balance"

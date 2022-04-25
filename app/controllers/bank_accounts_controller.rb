@@ -17,7 +17,8 @@ class BankAccountsController < ApplicationController
     @bank_account = current_user.bank_accounts.build(bank_account_params)
     respond_to do |format|
       if @bank_account.save
-        format.html { redirect_to root_path, notice: 'Created' }
+        format.turbo_stream
+        flash.now[:notice] = 'Bank account added'
       else
         format.html { render :new, status: :unprocessable_entity }
       end

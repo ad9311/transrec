@@ -21,6 +21,6 @@ class Cycle < ApplicationRecord
 
   def new_transaction(amount)
     update(balance: (balance + amount))
-    bank_account.update(balance: (bank_account.balance +  amount))
+    bank_account.update(balance: (bank_account.balance + amount))
   end
 end
