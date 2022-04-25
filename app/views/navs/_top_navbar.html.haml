@@ -1,7 +1,0 @@
--if user_signed_in?
-  .top_bar_wide
-    .top_bar_narrow
-      = link_to 'Transrec', root_path
-      = link_to 'Home', root_path
-      %p= current_user.full_name
-      %p= format_balance current_user_balance

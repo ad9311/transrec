@@ -10,12 +10,15 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    cycle = Cycle.find(transaction_params[:cycle_id])
-    @transaction = cycle.transactions.build(transaction_params)
+    @cycle = Cycle.find(transaction_params[:cycle_id])
+    @bank_account = @cycle.bank_account
+    @transaction = @cycle.transactions.build(transaction_params)
+
     respond_to do |format|
       if @transaction.save
-        cycle.new_transaction(@transaction.amount)
-        format.html { redirect_to cycle.bank_account, notice: 'Created' }
+        @cycle.new_transaction(@transaction.amount)
+        format.turbo_stream
+        format.html { redirect_to @bank_account, notice: 'Created' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

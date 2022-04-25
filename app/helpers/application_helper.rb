@@ -10,4 +10,12 @@ module ApplicationHelper
     end
     balance
   end
+
+  def map_enum(enum)
+    map = []
+    enum.each do |k, _v|
+      map << [k.to_s.tr('_', ' ').capitalize, k]
+    end
+    map
+  end
 end

@@ -1,0 +1,10 @@
+= turbo_frame_tag @bank_account do
+  %h2= @bank_account.bank
+  %p= "#{@cycle.month.capitalize}/#{@cycle.year}"
+  - @cycle.transactions.each do |transaction|
+    -# %p= format_balance transaction.amount
+    -# %p= transaction.description
+  %p= format_balance @bank_account.balance
+  = turbo_frame_tag "new_transaction" do
+    = link_to "Add a deposit", transactions_new_deposit_path(id: @cycle)
+    = link_to "Add a expense", transactions_new_expense_path(id: @cycle)
