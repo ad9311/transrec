@@ -1,0 +1,84 @@
+@import './variables';
+
+.top-bar {
+  position: sticky;
+  position: -webkit-sticky;
+}
+
+.navbar {
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $light-gray;
+  box-shadow: $main-shadow;
+}
+
+.menu-icon {
+  height: 1.5rem;
+}
+
+.side-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  padding: 1rem;
+  width: 12.5rem;
+  background-color: $lighter-gray;
+  border-radius: $border-radius;
+  box-shadow: $side-menu-shadow;
+  transition: all 0.25s ease-in-out;
+
+  ul {
+    margin-top: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  .logout {
+    margin-top: 6.25rem;
+
+    li {
+      text-align: end;
+    }
+  }
+}
+
+.side-menu-off {
+  left: -100%;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  p {
+    margin-left: 0.25rem;
+    color: $secondary;
+    font-size: 1.35rem;
+    font-weight: bold;
+  }
+}
+
+#current_user_balance {
+  p {
+    margin-left: 0.625rem;
+  }
+}
+
+.notifications {
+  position: absolute;
+  top: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.notice {
+  padding: $padding-notification;
+  background-color: $lighter-gray;
+  color: $green;
+  font-weight: 500;
+  border-radius: $border-radius;
+}

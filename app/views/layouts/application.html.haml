@@ -9,7 +9,10 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    = render "topbar/navbar"
+    .top-bar
+      = render "topbar/navbar"
+      .notifications
+        = render "notifications/notifications"
     .new-bank-account
       = turbo_frame_tag "new_bank_account"
     .content
