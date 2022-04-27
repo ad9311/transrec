@@ -1,0 +1,9 @@
+-if user_signed_in?
+  .top-bar
+    .menu-icon
+      = image_tag "icons/menu", alt: "menu"
+      = render "topbar/navmenu"
+    .user-balance
+      = render "topbar/user_balance"
+    .notifiactions
+      = render "notifications/notifications"

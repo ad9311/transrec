@@ -16,11 +16,10 @@ class BankAccountsController < ApplicationController
   def create
     @bank_account = current_user.bank_accounts.build(bank_account_params)
     respond_to do |format|
+      format.turbo_stream
       if @bank_account.save
-        format.turbo_stream
         flash.now[:notice] = 'Bank account added'
       else
-        format.turbo_stream
         flash.now[:alert] = @bank_account.errors.full_messages
       end
     end

@@ -1,0 +1,12 @@
+.navmenu
+  .user
+    = image_tag "icons/user", alt: "user"
+    %p= current_user.full_name
+  %nav
+    %ul
+      %li
+        = link_to "Home", root_path
+      %li
+        = link_to "New Account", new_bank_account_path, "data-turbo-frame": "new_bank_account"
+      %li
+        = button_to "Logout", destroy_user_session_path, method: :delete

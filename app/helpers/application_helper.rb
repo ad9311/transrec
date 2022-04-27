@@ -13,7 +13,7 @@ module ApplicationHelper
 
   def map_enum(enum, skip = nil)
     map = []
-    enum.each do |k, v|
+    enum.each do |k, _v|
       map << [k.to_s.tr('_', ' ').capitalize, k] unless skip == k
     end
     map

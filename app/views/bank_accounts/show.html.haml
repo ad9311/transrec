@@ -1,2 +1,6 @@
 .bank_account
+  = image_tag "icons/bank", alt: "bank"
+  %h2= @bank_account.bank
+  %p= @bank_account.sort.capitalize
+  %p= "#" + @bank_account.last_four
   = render "transactions"

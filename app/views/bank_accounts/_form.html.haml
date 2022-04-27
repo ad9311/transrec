@@ -1,3 +1,6 @@
+.title
+  = image_tag "icons/plus", alt: "plus"
+  %p New Bank Accout
 = form_for @bank_account do |f|
   .field
     = f.label :bank
@@ -8,9 +11,9 @@
   .field
     = f.label :sort
     .radio-buttons
-      = f.radio_button :sort, "savings"
+      = f.radio_button :sort, "savings", checked: true
       = f.label :sort, "Savings"
       = f.radio_button :sort, "checking"
       = f.label :sort, "Checking"
   .actions
-    = f.submit 'Save'
+    = f.submit "Add"

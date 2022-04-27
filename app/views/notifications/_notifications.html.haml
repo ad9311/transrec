@@ -1,8 +1,7 @@
 = turbo_frame_tag "notifications" do
-  .notifiactions
-    .notice
-      %p= notice
-    .altert
-      - if alert.is_a?(Array)
-        - alert.each do |message|
-          %p= message
+  .notice
+    %p= notice
+  .altert
+    - if alert.is_a?(Array)
+      - alert.each do |message|
+        %p= message
