@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["menu"]
+  static targets = ["sidebar"]
 
-  sideMenu() {
-    const menu = this.menuTarget
+  toggleSidebar() {
+    const sidebar = this.sidebarTarget
 
-    menu.classList.toggle('side-menu-off');
+    sidebar.classList.toggle('sidebar-off')
   }
 }

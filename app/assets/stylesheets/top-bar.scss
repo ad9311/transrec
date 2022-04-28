@@ -1,10 +1,5 @@
 @import './variables';
 
-.top-bar {
-  position: sticky;
-  position: -webkit-sticky;
-}
-
 .navbar {
   position: relative;
   padding: 0.5rem 0.75rem;
@@ -19,7 +14,7 @@
   height: 1.5rem;
 }
 
-.side-menu {
+.sidebar {
   position: absolute;
   left: 0;
   top: 100%;
@@ -27,7 +22,7 @@
   width: 12.5rem;
   background-color: $lighter-gray;
   border-radius: $border-radius;
-  box-shadow: $side-menu-shadow;
+  box-shadow: $sidebar-shadow;
   transition: all 0.25s ease-in-out;
 
   ul {
@@ -47,7 +42,7 @@
   }
 }
 
-.side-menu-off {
+.sidebar-off {
   left: -100%;
 }
 
