@@ -43,9 +43,11 @@ class BankAccountsController < ApplicationController
         month: Time.new.getlocal.mon,
         year: Time.new.getlocal.year
       )
-      cycle if cycle.save
+      return cycle if cycle.save
+
+      Cycle.new
     else
-      cycle
+      cycle.first
     end
   end
 end

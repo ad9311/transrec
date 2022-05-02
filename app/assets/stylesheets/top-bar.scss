@@ -1,5 +1,12 @@
 @import './variables';
 
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .navbar {
   position: relative;
   padding: 0.5rem 0.75rem;
@@ -71,7 +78,7 @@
 }
 
 .notice {
-  padding: $padding-notification;
+  padding: $notification-padding;
   background-color: $lighter-gray;
   color: $green;
   font-weight: 500;

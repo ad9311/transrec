@@ -17,7 +17,7 @@ class Cycle < ApplicationRecord
     december: 12
   }
 
-  scope :current, -> { where(month: Time.new.getlocal.mon, year: Time.new.getlocal.year).first }
+  scope :current, -> { where(month: Time.new.getlocal.mon, year: Time.new.getlocal.year) }
 
   def new_transaction(amount)
     update(balance: (balance + amount))

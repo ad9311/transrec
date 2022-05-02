@@ -1,8 +1,16 @@
 = turbo_frame_tag @bank_account do
-  %p= format_balance @bank_account.balance
-  - @cycle.transactions.each do |transaction|
-    -# %p= format_balance transaction.amount
-    -# %p= transaction.description
+  .space
+    - if @bank_account.balance >= 0
+      %p.balance.positive= format_balance @bank_account.balance
+    - else
+      %p.balance.negative= format_balance @bank_account.balance
+  = turbo_frame_tag "transactions" do
+    = render "cycle_dropdowns"
+    .transactions.space
+      - @cycle.transactions.each do |transaction|
+        -# %p= format_balance transaction.amount
+        -# %p= transaction.description
   = turbo_frame_tag "new_transaction" do
-    = link_to "Add a deposit", transactions_new_deposit_path(id: @cycle)
-    = link_to "Add a expense", transactions_new_expense_path(id: @cycle)
+    .actions
+      = link_to "Add a deposit", transactions_new_deposit_path(id: @cycle), class: "link-button space"
+      = link_to "Add a expense", transactions_new_expense_path(id: @cycle), class: "link-button"
