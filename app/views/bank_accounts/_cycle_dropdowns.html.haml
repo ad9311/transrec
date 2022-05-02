@@ -6,7 +6,7 @@
     %ul.dropdown-menu.hide{ "data-toggle-target": "month" }
       - @bank_account.cycles.each do |cycle|
         %li.dropdown-item
-          %span= cycle.month.capitalize
+          = link_to cycle.month.capitalize, change_cycle_path(bank_account_id: @bank_account, cycle_id: cycle)
   .dropdown
     %button{ "data-action": "toggle#yearDropdown", type: "button" }
       %span= @cycle.year

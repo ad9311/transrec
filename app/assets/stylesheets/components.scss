@@ -200,3 +200,21 @@ input[type="text"] {
   }
 }
 
+.transactions {
+  padding: 1rem;
+  background-color: $lighter-gray;
+  border-radius: $border-radius;
+}
+
+.transaction {
+  display: block;
+}
+
+.text-left {
+  text-align: start;
+}
+
+.text-right {
+  text-align: end;
+}
+

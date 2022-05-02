@@ -25,6 +25,11 @@ class BankAccountsController < ApplicationController
     end
   end
 
+  def change_cycle
+    cycle_params
+    render partial: "bank_accounts/transactions"
+  end
+
   private
 
   def set_bank_account
@@ -33,6 +38,11 @@ class BankAccountsController < ApplicationController
 
   def bank_account_params
     params.require(:bank_account).permit(:bank, :last_four, :sort)
+  end
+
+  def cycle_params
+    @bank_account = BankAccount.find(params[:bank_account_id])
+    @cycle = Cycle.find(params[:cycle_id])
   end
 
   def new_cycle
