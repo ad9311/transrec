@@ -7,13 +7,16 @@
   = render partial: "bank_accounts/cycle_dropdowns"
   .transactions.space
     - @cycle.transactions.each do |transaction|
-      .balance.transaction.space.text-right
-        - if transaction.amount >= 0
-          %p.positive= format_balance transaction.amount
-        - else
-          %p.negative= format_balance transaction.amount
-        .description
-          %span= transaction.description
+      - if transaction.amount >= 0
+        .transaction
+          %p.balance.positive= format_balance transaction.amount
+          %p.description= transaction.description
+        .empty
+      - else
+        .empty
+        .transaction
+          %p.balance.negative= format_balance transaction.amount
+          %p.description= transaction.description
   = turbo_frame_tag "new_transaction" do
     .actions
       = link_to "Add a deposit", transactions_new_deposit_path(id: @cycle), class: "link-button space"
