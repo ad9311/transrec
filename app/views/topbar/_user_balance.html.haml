@@ -1,6 +1,6 @@
 = turbo_frame_tag "current_user_balance" do
   .balance
-    = image_tag "icons/coin", alt: "coin"
+    = image_tag "icons/coin.svg", alt: "coin"
     - if current_user_balance >= 0
       %p.positive= format_balance current_user_balance
     - else

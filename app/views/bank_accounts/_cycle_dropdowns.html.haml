@@ -2,7 +2,7 @@
   .dropdown
     %button{ "data-action": "toggle#monthDropdown", type: "button" }
       %span= @cycle.month.capitalize
-      = image_tag "icons/dropdown-arrow", alt: "dropdown"
+      = image_tag "icons/dropdown-arrow.svg", alt: "dropdown"
     %ul.dropdown-menu.hide{ "data-toggle-target": "month" }
       - @bank_account.cycles.each do |cycle|
         %li.dropdown-item
@@ -10,7 +10,7 @@
   .dropdown
     %button{ "data-action": "toggle#yearDropdown", type: "button" }
       %span= @cycle.year
-      = image_tag "icons/dropdown-arrow", alt: "dropdown"
+      = image_tag "icons/dropdown-arrow.svg", alt: "dropdown"
     %ul.dropdown-menu.hide{ "data-toggle-target": "year" }
       %li.dropdown-item
         %span= @cycle.year
