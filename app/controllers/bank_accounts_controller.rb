@@ -27,7 +27,7 @@ class BankAccountsController < ApplicationController
 
   def change_cycle
     cycle_params
-    render partial: "bank_accounts/transactions"
+    render partial: 'bank_accounts/transactions'
   end
 
   private
