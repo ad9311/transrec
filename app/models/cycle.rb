@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: cycles
+#
+#  id              :bigint           not null, primary key
+#  balance         :float            default(0.0)
+#  month           :integer
+#  year            :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  bank_account_id :bigint           not null
+#
+# Indexes
+#
+#  index_cycles_on_bank_account_id  (bank_account_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (bank_account_id => bank_accounts.id)
+#
 class Cycle < ApplicationRecord
   belongs_to :bank_account
   has_many :transactions, dependent: :destroy
