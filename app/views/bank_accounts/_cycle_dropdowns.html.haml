@@ -1,17 +1,15 @@
-.dropdown-group.space{ "data-controller": "toggle" }
+.dropdown-group.space
   .dropdown
-    %button{ "data-action": "toggle#monthDropdown", type: "button" }
+    %button
       %span= @cycle.month.capitalize
-      = image_tag "icons/dropdown-arrow.svg", alt: "dropdown"
-    %ul.dropdown-menu.hide{ "data-toggle-target": "month" }
+    %ul.dropdown-menu.hide
       - @bank_account.cycles.each do |cycle|
         %li.dropdown-item
           = link_to cycle.month.capitalize, change_cycle_path(bank_account_id: @bank_account, cycle_id: cycle)
   .dropdown
-    %button{ "data-action": "toggle#yearDropdown", type: "button" }
+    %button
       %span= @cycle.year
-      = image_tag "icons/dropdown-arrow.svg", alt: "dropdown"
-    %ul.dropdown-menu.hide{ "data-toggle-target": "year" }
+    %ul.dropdown-menu.hide
       %li.dropdown-item
         %span= @cycle.year
       - @bank_account.cycles.each do |cycle|
