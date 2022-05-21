@@ -1,0 +1,10 @@
+# Directories
+tmp/
+log/
+node_modules/
+
+# Files
+.yarn.lock
+.rubocop.yml
+package.json
+README.md

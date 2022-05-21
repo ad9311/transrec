@@ -1,4 +1,7 @@
 -if user_signed_in?
-  .navbar
-    .user-balance
-      = render "topbar/user_balance"
+  .navbar.bg-light.shadow-sm
+    .container
+      .nav-menu
+        = render "topbar/nav_menu"
+      .user-balance
+        = render "topbar/user_balance"

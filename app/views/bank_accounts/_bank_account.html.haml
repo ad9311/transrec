@@ -1,13 +1,14 @@
-.bank_account.card
-  .header.space
-    .title
-      %h3= bank_account.bank
-  .bank-account-info.space
-    %p.type= bank_account.sort.capitalize
-    %p.number= "#" + bank_account.last_four
-  - if bank_account.balance >= 0
-    %p.balance.positive= format_balance bank_account.balance
-  - else
-    %p.balance.negative= format_balance bank_account.balance
-  .actions
-    = link_to "Show", bank_account, "data-turbo-frame": "_top", class: "link-button"
+.bank-account.card.mb-4
+  .card-header
+    %h2= bank_account.bank
+  .card-body
+    .d-flex.mb-2.fs-5.card-subtitle.text-muted
+      %p.fw-bold= bank_account.sort.capitalize
+      %p.ms-1= "#" + bank_account.last_four
+    .pt-2
+      - if bank_account.balance >= 0
+        %p.text-success.fw-bold.card.d-inline.px-2.py-1= format_balance bank_account.balance
+      - else
+        %p.text-danger.fw-bold.card.d-inline.px-2.py-1= format_balance bank_account.balance
+    .text-end.mt-5
+      = link_to "Show", bank_account, "data-turbo-frame": "_top", class: "btn btn-primary"

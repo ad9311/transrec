@@ -1,8 +1,8 @@
 .bank_account.card
-  .header.space
-    .title
-      %h3= @bank_account.bank
-  .bank-account-info.space
-    %p.type= @bank_account.sort.capitalize
-    %p.number= "#" + @bank_account.last_four
-  = render "transactions"
+  .card-header
+    %h2= @bank_account.bank
+  .card-body
+    .d-flex.mb-2.fs-5.card-subtitle.text-muted
+      %p.fw-bold= @bank_account.sort.capitalize
+      %p.ms-1= "#" + @bank_account.last_four
+    = render "transactions"

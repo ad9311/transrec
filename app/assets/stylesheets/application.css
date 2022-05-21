@@ -12,4 +12,29 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.bank-account {
+  min-width: 250px;
+}
+
+.transactions {
+  max-height: 400px;
+  overflow-y: scroll;
+}

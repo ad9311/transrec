@@ -1,23 +1,26 @@
 = turbo_frame_tag @bank_account do
-  .space
+  .pt-2
     - if @bank_account.balance >= 0
-      %p.balance.positive= format_balance @bank_account.balance
+      %p.text-success.fw-bold.card.d-inline.px-2.py-1= format_balance @bank_account.balance
     - else
-      %p.balance.negative= format_balance @bank_account.balance
-  = render partial: "bank_accounts/cycle_dropdowns"
-  .transactions.space
-    - @cycle.transactions.each do |transaction|
-      - if transaction.amount >= 0
-        .transaction
-          %p.balance.positive= format_balance transaction.amount
-          %p.description= transaction.description
-        .empty
-      - else
-        .empty
-        .transaction
-          %p.balance.negative= format_balance transaction.amount
-          %p.description= transaction.description
+      %p.text-danger.fw-bold.card.d-inline.px-2.py-1= format_balance @bank_account.balance
+  .mt-4.d
+    = render partial: "bank_accounts/cycle_dropdowns"
+  - unless @cycle.transactions.blank?
+    .card.mt-5.bg-light.transactions
+      .card-body
+        %ul
+          - @cycle.transactions.each do |transaction|
+            %li
+              - if transaction.amount >= 0
+                .text-right.mb-3
+                  %p.text-success.fw-bold.card.d-inline.px-2.py-1.me-2= format_balance transaction.amount
+                  %p.d-inline.text-truncate= transaction.description
+              - else
+                .text-end.mb-3
+                  %p.text-danger.fw-bold.card.d-inline.px-2.py-1.me-2= format_balance transaction.amount
+                  %p.d-inline.text-truncate= transaction.description
   = turbo_frame_tag "new_transaction" do
-    .actions
-      = link_to "Add a deposit", transactions_new_deposit_path(id: @cycle), class: "link-button space"
-      = link_to "Add a expense", transactions_new_expense_path(id: @cycle), class: "link-button"
+    .mt-4
+      = link_to "Add a deposit", transactions_new_deposit_path(id: @cycle), class: "btn btn-primary"
+      = link_to "Add a expense", transactions_new_expense_path(id: @cycle), class: "btn btn-primary"

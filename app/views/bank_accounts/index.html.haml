@@ -1,4 +1,5 @@
 = turbo_frame_tag "bank_accounts" do
-  .bank_accounts
+  .d-flex.flex-column.flex-sm-row.flex-wrap.justify-content-between
+    -# = turbo_frame_tag "new_bank_account"
     - @bank_accounts.each do |bank_account|
       = render "bank_account", bank_account: bank_account

@@ -1,0 +1,14 @@
+.dropdown
+  %button.btn.btn-primary.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", type: "button"}
+    %span Menu
+  %ul.dropdown-menu{"aria-labelledby" => "dropdownMenuButton1"}
+    %li
+      = link_to "Home", root_path, class: "dropdown-item"
+    %li
+      = link_to "New Account", new_bank_account_path, "data-turbo-frame": "new_bank_account", class: "dropdown-item"
+    %li
+      = link_to "Stadistics", root_path, class: "dropdown-item"
+    %li
+      %hr.dropdown-divider
+    %li
+      = button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item text-danger fw-bold"

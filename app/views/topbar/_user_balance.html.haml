@@ -1,6 +1,5 @@
 = turbo_frame_tag "current_user_balance" do
-  .balance
-    - if current_user_balance >= 0
-      %p.positive= format_balance current_user_balance
-    - else
-      %p.negative= format_balance current_user_balance
+  - if current_user_balance >= 0
+    %p.text-success.fw-bold.card.d-inline.px-2.py-1.fs-5= format_balance current_user_balance
+  - else
+    %p.text-danger.fw-bold.card.d-inline.px-2.py-1.fs-5= format_balance current_user_balance
