@@ -1,9 +1,9 @@
 -if user_signed_in?
   .navbar{ "data-controller": "toggle" }
     .menu-icon
-      %button{ "data-action": "click->toggle#sideMenu", class: "clear-button" }
-        = image_tag "icons/menu", alt: "menu"
-    %div{ "data-toggle-target": "menu", class: "side-menu side-menu-off" }
-      = render "topbar/side_menu"
+      %button{"data-action": "toggle#sidebarOptions", class: "clear-button", id: "sidebar" }
+        = image_tag "icons/menu.svg", alt: "menu"
+    .sidebar.sidebar-off{ "data-toggle-target": "sidebar" }
+      = render "topbar/sidebar"
     .user-balance
       = render "topbar/user_balance"

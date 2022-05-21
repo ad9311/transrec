@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :bank_accounts, only: %i[index show new create]
+  get 'change_cycle', to: 'bank_accounts#change_cycle'
 
   resources :transactions, only: %i[create]
   get 'transactions/new_deposit'

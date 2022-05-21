@@ -1,8 +1,10 @@
 @import './variables';
 
 .top-bar {
-  position: sticky;
-  position: -webkit-sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .navbar {
@@ -19,7 +21,7 @@
   height: 1.5rem;
 }
 
-.side-menu {
+.sidebar {
   position: absolute;
   left: 0;
   top: 100%;
@@ -27,7 +29,7 @@
   width: 12.5rem;
   background-color: $lighter-gray;
   border-radius: $border-radius;
-  box-shadow: $side-menu-shadow;
+  box-shadow: $sidebar-shadow;
   transition: all 0.25s ease-in-out;
 
   ul {
@@ -47,7 +49,7 @@
   }
 }
 
-.side-menu-off {
+.sidebar-off {
   left: -100%;
 }
 
@@ -76,7 +78,7 @@
 }
 
 .notice {
-  padding: $padding-notification;
+  padding: $notification-padding;
   background-color: $lighter-gray;
   color: $green;
   font-weight: 500;

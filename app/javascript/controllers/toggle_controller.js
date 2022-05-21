@@ -1,11 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["menu"]
+  static targets = ["sidebar", "month", "year"]
 
-  sideMenu() {
-    const menu = this.menuTarget
+  sidebarOptions() {
+    this.sidebarTarget.classList.toggle('sidebar-off')
+  }
 
-    menu.classList.toggle('side-menu-off');
+  monthDropdown() {
+    this.monthTarget.classList.toggle('hide')
+  }
+
+  yearDropdown() {
+    this.yearTarget.classList.toggle('hide')
   }
 }

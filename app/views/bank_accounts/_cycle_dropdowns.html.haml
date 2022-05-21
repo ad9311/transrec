@@ -1,0 +1,20 @@
+.dropdown-group.space{ "data-controller": "toggle" }
+  .dropdown
+    %button{ "data-action": "toggle#monthDropdown", type: "button" }
+      %span= @cycle.month.capitalize
+      = image_tag "icons/dropdown-arrow.svg", alt: "dropdown"
+    %ul.dropdown-menu.hide{ "data-toggle-target": "month" }
+      - @bank_account.cycles.each do |cycle|
+        %li.dropdown-item
+          = link_to cycle.month.capitalize, change_cycle_path(bank_account_id: @bank_account, cycle_id: cycle)
+  .dropdown
+    %button{ "data-action": "toggle#yearDropdown", type: "button" }
+      %span= @cycle.year
+      = image_tag "icons/dropdown-arrow.svg", alt: "dropdown"
+    %ul.dropdown-menu.hide{ "data-toggle-target": "year" }
+      %li.dropdown-item
+        %span= @cycle.year
+      - @bank_account.cycles.each do |cycle|
+        - if cycle.year < @cycle.year
+          %li.dropdown-item
+            %span= cycle.year

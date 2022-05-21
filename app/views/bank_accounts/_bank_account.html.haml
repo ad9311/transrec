@@ -1,6 +1,14 @@
-.bank_account
-  %h3= bank_account.bank
-  %p= bank_account.sort.capitalize
-  %p= "#" + bank_account.last_four
-  %p= format_balance bank_account.balance
-  = link_to "Show", bank_account, "data-turbo-frame": "_top"
+.bank_account.card
+  .header.space
+    .title
+      = image_tag "icons/bank.svg", alt: "plus"
+      %h3= bank_account.bank
+  .bank-account-info.space
+    %p.type= bank_account.sort.capitalize
+    %p.number= "#" + bank_account.last_four
+  - if bank_account.balance >= 0
+    %p.balance.positive= format_balance bank_account.balance
+  - else
+    %p.balance.negative= format_balance bank_account.balance
+  .actions
+    = link_to "Show", bank_account, "data-turbo-frame": "_top", class: "link-button"

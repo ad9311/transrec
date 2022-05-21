@@ -1,19 +1,21 @@
-.title
-  = image_tag "icons/plus", alt: "plus"
-  %p New Bank Accout
+.header.space
+  .title
+    = image_tag "icons/plus.svg", alt: "plus"
+    %h3 New Bank Accout
+  .close-button
+    = link_to image_tag("icons/close.svg", alt: "close"), root_path, "data-turbo-frame": "_top"
 = form_for @bank_account do |f|
-  .field
-    = f.label :bank
-    = f.text_field :bank
-  .field
-    = f.label :last_four
-    = f.text_field :last_four
-  .field
-    = f.label :sort
+  .field.space
+    = f.text_field :bank, placeholder: "Bank Name"
+  .field.space
+    = f.text_field :last_four, placeholder: "Bank Number"
+  .field.space
     .radio-buttons
-      = f.radio_button :sort, "savings", checked: true
-      = f.label :sort, "Savings"
-      = f.radio_button :sort, "checking"
-      = f.label :sort, "Checking"
+      .group
+        = f.radio_button :sort, "savings", checked: true
+        = f.label :sort, "Savings"
+      .group
+        = f.radio_button :sort, "checking"
+        = f.label :sort, "Checking"
   .actions
-    = f.submit "Add"
+    = f.submit "Add", class: "link-button"

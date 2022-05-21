@@ -15,12 +15,11 @@ class TransactionsController < ApplicationController
     @transaction = @cycle.transactions.build(transaction_params)
 
     respond_to do |format|
+      format.turbo_stream
       if @transaction.save
         @cycle.new_transaction(@transaction.amount)
-        format.turbo_stream
         flash.now[:notice] = 'Transaction added'
       else
-        format.turbo_stream
         flash.now[:alert] = @transaction.errors.full_messages
       end
     end
