@@ -11,7 +11,7 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    .top-bar
+    .top-bar.position-sticky
       = render "topbar/navbar"
       .notifications
         = render "notifications/notifications"

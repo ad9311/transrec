@@ -13,14 +13,14 @@
           - @cycle.transactions.each do |transaction|
             %li
               - if transaction.amount >= 0
-                .text-right.mb-3
-                  %p.text-success.fw-bold.card.d-inline.px-2.py-1.me-2= format_balance transaction.amount
-                  %p.d-inline.text-truncate= transaction.description
+                .d-flex.justify-content-start.align-items-center.mb-3
+                  %p.text-success.fw-bold.card.px-2.py-1.me-2.text-nowrap= format_balance transaction.amount
+                  %p.text-truncate= transaction.description
               - else
-                .text-end.mb-3
-                  %p.text-danger.fw-bold.card.d-inline.px-2.py-1.me-2= format_balance transaction.amount
-                  %p.d-inline.text-truncate= transaction.description
+                .d-flex.justify-content-end.align-items-center.mb-3
+                  %p.text-danger.fw-bold.card.px-2.py-1.me-2.text-nowrap= format_balance transaction.amount
+                  %p.text-truncate= transaction.description
   = turbo_frame_tag "new_transaction" do
     .mt-4
       = link_to "Add a deposit", transactions_new_deposit_path(id: @cycle), class: "btn btn-primary"
-      = link_to "Add a expense", transactions_new_expense_path(id: @cycle), class: "btn btn-primary"
+      = link_to "Add a expense", transactions_new_expense_path(id: @cycle), class: "btn btn-primary ms-1"

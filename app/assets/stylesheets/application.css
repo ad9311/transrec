@@ -30,8 +30,17 @@ li {
   list-style: none;
 }
 
+.top-bar {
+  z-index: 1;
+}
+
 .bank-account {
   min-width: 250px;
+}
+
+.bank-account-transactions {
+  margin: auto;
+  max-width: 400px;
 }
 
 .transactions {
