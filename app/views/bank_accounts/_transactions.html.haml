@@ -22,5 +22,5 @@
                   %p.text-truncate= transaction.description
   = turbo_frame_tag "new_transaction" do
     .mt-4
-      = link_to "Add a deposit", transactions_new_deposit_path(id: @cycle), class: "btn btn-primary"
-      = link_to "Add a expense", transactions_new_expense_path(id: @cycle), class: "btn btn-primary ms-1"
+      = link_to "New deposit", transactions_new_deposit_path(id: @cycle), class: "btn btn-primary"
+      = link_to "New expense", transactions_new_expense_path(id: @cycle), class: "btn btn-primary ms-1"

@@ -1,7 +1,11 @@
 = turbo_frame_tag "notifications" do
-  .notice
-    %p= notice
-  .altert
-    - if alert.is_a?(Array)
-      - alert.each do |message|
-        %p= message
+  - unless notice.nil?
+    .notice.bg-success.bg-opacity-25.border.py-1.px-3.border.rounded-1.text-center
+      %p.text-success#notice= notice
+  - unless alert.nil?
+    .alert.bg-danger.bg-opacity-25.border.py-1.px-3.border.rounded-1.text-center
+      - if alert.is_a?(Array)
+        - alert.each do |message|
+          %p= message
+      - else
+        %p= alert

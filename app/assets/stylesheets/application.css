@@ -34,6 +34,11 @@ li {
   z-index: 1;
 }
 
+.notifications {
+  left: 50%;
+  transform: translate(0, -50%);
+}
+
 .bank-account {
   min-width: 250px;
 }
